@@ -1,0 +1,81 @@
+.contact {
+  padding: 8rem 3rem;
+  border-top: 1px solid var(--border);
+  background: var(--fg);
+  color: var(--bg);
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.label {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(247, 245, 242, 0.4);
+  font-weight: 400;
+  display: block;
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-bottom: 1.75rem;
+}
+
+.title em {
+  font-style: italic;
+  color: var(--accent);
+}
+
+.sub {
+  font-size: 1rem;
+  color: rgba(247, 245, 242, 0.55);
+  line-height: 1.8;
+  margin-bottom: 3rem;
+}
+
+.email {
+  display: inline-block;
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: var(--bg);
+  border-bottom: 1px solid rgba(247, 245, 242, 0.3);
+  padding-bottom: 0.25rem;
+  margin-bottom: 3rem;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.email:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.socials span {
+  color: rgba(247, 245, 242, 0.2);
+}
+
+.socials a {
+  color: rgba(247, 245, 242, 0.5);
+  transition: color 0.2s;
+}
+
+.socials a:hover {
+  color: var(--bg);
+}
+
+@media (max-width: 640px) {
+  .contact { padding: 5rem 1.5rem; }
+}
