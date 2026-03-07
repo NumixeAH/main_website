@@ -5,11 +5,6 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.inner}>
         <p className={styles.eyebrow}>Developer · Founder · Maker</p>
-        <h1 className={styles.title}>
-          Je construis des<br />
-          <em>produits digitaux</em><br />
-          qui fonctionnent.
-        </h1>
         <p className={styles.sub}>
           Indie developer basé en Belgique —<br />
           e-commerce, apps mobiles, outils bureautiques,... .
