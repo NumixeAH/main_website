@@ -13,8 +13,8 @@ export default function Contact() {
           Je suis ouvert aux collaborations, aux missions freelance<br />
           et aux conversations intéressantes.
         </p>
-        <a href="mailto:numixe@sparkixe.com" className={styles.email}>
-          numixe@sparkixe.com
+        <a href="mailto:contact@sparkixe.com" className={styles.email}>
+          contact@sparkixe.com
         </a>
         <div className={styles.socials}>
           <a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a>
