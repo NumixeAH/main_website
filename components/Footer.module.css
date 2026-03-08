@@ -1,20 +1,50 @@
 .footer {
-  background: var(--fg);
-  color: rgba(247, 245, 242, 0.3);
-  padding: 1.5rem 3rem;
+  position: relative;
+  z-index: 1;
+  border-top: 1px solid var(--border);
+  padding: 40px 24px;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 0.75rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
   letter-spacing: 0.05em;
-  border-top: 1px solid rgba(247, 245, 242, 0.08);
+}
+
+.accent {
+  color: var(--accent);
+}
+
+.copy {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+}
+
+.tech {
+  font-size: 0.8rem;
+  color: var(--fg-muted);
+  opacity: 0.6;
 }
 
 @media (max-width: 640px) {
-  .footer {
+  .inner {
     flex-direction: column;
-    gap: 0.5rem;
     text-align: center;
-    padding: 1.5rem;
   }
 }

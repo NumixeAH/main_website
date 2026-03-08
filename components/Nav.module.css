@@ -4,60 +4,120 @@
   left: 0;
   right: 0;
   z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5rem 3rem;
-  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-bottom 0.3s;
+  padding: 20px 0;
+  transition: all 0.3s ease;
 }
 
-.scrolled {
-  background: rgba(247, 245, 242, 0.88);
-  backdrop-filter: blur(12px);
+.nav.scrolled {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
 }
 
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .logo {
-  font-family: 'DM Serif Display', serif;
-  font-size: 1.25rem;
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
   letter-spacing: 0.05em;
-  color: var(--fg);
+}
+
+.logoAccent {
+  color: var(--accent);
 }
 
 .links {
   display: flex;
-  align-items: center;
-  gap: 2.5rem;
-  list-style: none;
+  gap: 32px;
 }
 
-.links a {
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: var(--muted);
-  letter-spacing: 0.03em;
+.link {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg-muted);
   transition: color 0.2s;
+  position: relative;
 }
 
-.links a:hover {
+.link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+.link:hover {
   color: var(--fg);
 }
 
-.cta {
-  color: var(--fg) !important;
-  border: 1px solid var(--fg);
-  padding: 0.45rem 1.1rem;
-  border-radius: 2rem;
-  transition: background 0.2s, color 0.2s !important;
+.link:hover::after {
+  width: 100%;
 }
 
-.cta:hover {
-  background: var(--fg) !important;
-  color: var(--bg) !important;
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
-@media (max-width: 640px) {
-  .nav { padding: 1.25rem 1.5rem; }
-  .links { gap: 1.25rem; }
-  .links li:not(:last-child) { display: none; }
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.burgerLine {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--fg);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .links {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--bg);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 99;
+  }
+
+  .links.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .burger {
+    display: flex;
+    z-index: 101;
+  }
 }

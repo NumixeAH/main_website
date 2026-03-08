@@ -1,44 +1,50 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import AnimatedText from "./ui/AnimatedText";
 import styles from "./About.module.css";
 
 export default function About() {
+  const t = useTranslations("about");
+
+  const stats = [
+    { value: t("stat_projects_value"), label: t("stat_projects") },
+    { value: t("stat_founder_value"), label: t("stat_founder") },
+    { value: t("stat_stack_value"), label: t("stat_stack") },
+    { value: t("stat_passion_value"), label: t("stat_passion") },
+  ];
+
   return (
-    <section id="about" className={styles.about}>
-      <div className={styles.grid}>
-        <div className={styles.label}>
-          <span>02 — À propos</span>
-        </div>
-        <div className={styles.content}>
-          <h2 className={styles.heading}>
-            Développeur full-stack &<br />
-            entrepreneur en solo.
-          </h2>
-          <div className={styles.body}>
-            <p>
-              Je suis un développeur indépendant qui conçoit, code et lance des produits
-              digitaux de A à Z. De l'idée au déploiement, je maîtrise l'ensemble de la chaîne —
-              ce qui me permet d'aller vite et de rester agile.
-            </p>
-            <p>
-              Mes projets couvrent plusieurs domaines : e-commerce, applications mobiles
-              et outils bureautiques. Chaque produit est pensé pour être simple à utiliser,
-              robuste techniquement et viable commercialement.
-            </p>
-          </div>
-          <div className={styles.stats}>
-            <div className={styles.stat}>
-              <span className={styles.num}>3</span>
-              <span className={styles.desc}>Produits lancés</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.num}>1</span>
-              <span className={styles.desc}>Fondateur</span>
-            </div>
-            <div className={styles.stat}>
-              <span className={styles.num}>∞</span>
-              <span className={styles.desc}>Projets à venir</span>
-            </div>
-          </div>
-        </div>
+    <section id="about" className="section" style={{ position: "relative", zIndex: 1 }}>
+      <AnimatedText as="h2" className="section-title">
+        {t("title")}
+      </AnimatedText>
+
+      <motion.p
+        className={styles.description}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-50px" }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
+        {t("description")}
+      </motion.p>
+
+      <div className={styles.stats}>
+        {stats.map((stat, i) => (
+          <motion.div
+            key={stat.label}
+            className={styles.stat}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 * i }}
+          >
+            <span className={styles.statValue}>{stat.value}</span>
+            <span className={styles.statLabel}>{stat.label}</span>
+          </motion.div>
+        ))}
       </div>
     </section>
   );

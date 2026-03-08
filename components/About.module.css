@@ -1,75 +1,56 @@
-.about {
-  padding: 7rem 3rem;
-  border-top: 1px solid var(--border);
-}
-
-.grid {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 4rem;
-  align-items: start;
-}
-
-.label {
-  padding-top: 0.4rem;
-}
-
-.label span {
-  font-size: 0.75rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  font-weight: 400;
-}
-
-.heading {
-  font-family: 'DM Serif Display', serif;
-  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
-  font-weight: 400;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-}
-
-.body {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-  color: var(--muted);
-  font-size: 1rem;
+.description {
+  font-size: 1.15rem;
+  color: var(--fg-muted);
+  max-width: 700px;
   line-height: 1.8;
-  margin-bottom: 3rem;
+  margin-bottom: 60px;
 }
 
 .stats {
-  display: flex;
-  gap: 3rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .stat {
+  padding: 32px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.3rem;
+  gap: 8px;
+  transition: border-color 0.2s;
 }
 
-.num {
-  font-family: 'DM Serif Display', serif;
-  font-size: 2.5rem;
+.stat:hover {
+  border-color: var(--accent);
+}
+
+.statValue {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
   color: var(--accent);
-  line-height: 1;
 }
 
-.desc {
-  font-size: 0.8rem;
-  color: var(--muted);
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--fg-muted);
+  text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {
-  .about { padding: 5rem 1.5rem; }
-  .grid { grid-template-columns: 1fr; gap: 2rem; }
-  .stats { gap: 2rem; }
+  .stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .stats {
+    grid-template-columns: 1fr;
+  }
 }

@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Sparkixe — Project development",
+    "description": "Portfolio & projects by Numixe — e-commerce, mobile app, desktop app and more."
+  },
+  "nav": {
+    "about": "About",
+    "projects": "Projects",
+    "stack": "Stack",
+    "agile": "Agile",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Welcome to",
+    "tagline": "I craft digital experiences with passion.",
+    "subtitle": "Founded by Numixe — full-stack developer based in Belgium.",
+    "cta_projects": "Explore projects",
+    "cta_contact": "Get in touch"
+  },
+  "about": {
+    "title": "About",
+    "description": "Sparkixe is a project development brand founded by Numixe. We create digital products — from e-commerce to mobile and desktop apps and more — with an obsession for detail and users/clients satisfaction.",
+    "stat_projects": "Projects shipped",
+    "stat_founder": "Founder",
+    "stat_stack": "Technologies",
+    "stat_passion": "Passion",
+    "stat_projects_value": "3+",
+    "stat_founder_value": "Numixe",
+    "stat_stack_value": "10+",
+    "stat_passion_value": "∞"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "What I've been working on.",
+    "status_completed": "Completed",
+    "status_in_progress": "In Progress",
+    "view_project": "View project",
+    "visit_site": "Visit site",
+    "ecommerce": {
+      "title": "E-Commerce + SVG Configurator",
+      "description": "Full e-commerce platform with an interactive SVG configurator enabling product customization.",
+      "note": "Interactive demo coming soon"
+    },
+    "cocktail": {
+      "title": "Shake It!",
+      "description": "Android app to discover, save and share cocktail recipes. Coming soon to the Play Store.",
+      "note": "Coming to the Play Store"
+    },
+    "desktop": {
+      "title": "Desktop App - Tablet",
+      "description": "Tablet desktop application built with C# using WPF and .NET, designed for a smooth user experience on unstable networks.",
+      "note": "Actively in development"
+    }
+  },
+  "stack": {
+    "title": "Tech Stack",
+    "subtitle": "The tools I use daily.",
+    "frontend": "Frontend",
+    "mobile": "Mobile",
+    "backend": "Backend",
+    "desktop": "Desktop",
+    "devops": "DevOps",
+    "design": "Design"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Got a project in mind? Let's talk.",
+    "email_label": "Email",
+    "socials_label": "Socials"
+  },
+  "agile": {
+    "title": "Agile & Scrum",
+    "subtitle": "I love working in Agile methodology. Here are some resources I find valuable.",
+    "link_scrum_org": "Scrum.org",
+    "link_agile_alliance": "Agile Alliance",
+    "link_mountain_goat": "Mountain Goat Software",
+    "link_atlassian": "Atlassian Agile",
+    "link_scrum_guide": "Scrum Guide"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "built_with": "Built with Next.js"
+  },
+  "project_page": {
+    "back": "Back to projects",
+    "status": "Status",
+    "tech": "Technologies",
+    "about_project": "About the project",
+    "note": "Note",
+    "visit_site": "Visit site",
+    "links": "Links",
+    "screenshots": "Screenshots"
+  }
+}

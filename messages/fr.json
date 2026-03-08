@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "title": "Sparkixe — Développement de projets",
+    "description": "Portfolio & projets par Numixe — e-commerce, application mobile, application desktop et plus encore."
+  },
+  "nav": {
+    "about": "À propos",
+    "projects": "Projets",
+    "stack": "Stack",
+    "agile": "Agile",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Bienvenue chez",
+    "tagline": "Je conçois des expériences numériques avec passion.",
+    "subtitle": "Fondé par Numixe — développeur full-stack basé en Belgique.",
+    "cta_projects": "Découvrir les projets",
+    "cta_contact": "Me contacter"
+  },
+  "about": {
+    "title": "À propos",
+    "description": "Sparkixe est une marque de développement de projets fondé par Numixe. On crée des produits numériques — du e-commerce aux applications mobiles, desktop et plus encore — avec une obsession pour les détails et la satisfaction des utilisateurs/clients.",
+    "stat_projects": "Projets livrés",
+    "stat_founder": "Fondateur",
+    "stat_stack": "Technologies",
+    "stat_passion": "Passion",
+    "stat_projects_value": "3+",
+    "stat_founder_value": "Numixe",
+    "stat_stack_value": "10+",
+    "stat_passion_value": "∞"
+  },
+  "projects": {
+    "title": "Projets",
+    "subtitle": "Ce sur quoi je travaille.",
+    "status_completed": "Terminé",
+    "status_in_progress": "En cours",
+    "view_project": "Voir le projet",
+    "visit_site": "Voir le site",
+    "ecommerce": {
+      "title": "E-Commerce + Configurateur SVG",
+      "description": "Plateforme e-commerce complète avec un configurateur SVG interactif permettant la personnalisation de produits.",
+      "note": "Démo interactive bientôt disponible"
+    },
+    "cocktail": {
+      "title": "Shake It!",
+      "description": "Application Android pour découvrir, sauvegarder et partager des recettes de cocktails. Bientôt disponible sur le Play Store.",
+      "note": "Bientôt sur le Play Store"
+    },
+    "desktop": {
+      "title": "Application Desktop - Tablette",
+      "description": "Application bureautique sur tablette développée en C# avec WPF et .NET, conçue pour une expérience utilisateur avec réseau instable.",
+      "note": "En développement actif"
+    }
+  },
+  "stack": {
+    "title": "Stack technique",
+    "subtitle": "Les outils que j'utilise au quotidien.",
+    "frontend": "Frontend",
+    "mobile": "Mobile",
+    "backend": "Backend",
+    "desktop": "Desktop",
+    "devops": "DevOps",
+    "design": "Design"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Un projet en tête ? Discutons.",
+    "email_label": "Email",
+    "socials_label": "Réseaux"
+  },
+  "agile": {
+    "title": "Agile & Scrum",
+    "subtitle": "J'aime travailler en méthodologie agile. Voici quelques ressources que j'apprécie.",
+    "link_scrum_org": "Scrum.org",
+    "link_agile_alliance": "Agile Alliance",
+    "link_mountain_goat": "Mountain Goat Software",
+    "link_atlassian": "Atlassian Agile",
+    "link_scrum_guide": "Scrum Guide"
+  },
+  "footer": {
+    "rights": "Tous droits réservés.",
+    "built_with": "Fait avec Next.js"
+  },
+  "project_page": {
+    "back": "Retour aux projets",
+    "status": "Statut",
+    "tech": "Technologies",
+    "about_project": "À propos du projet",
+    "note": "Note",
+    "visit_site": "Voir le site",
+    "links": "Liens",
+    "screenshots": "Captures d'écran"
+  }
+}
