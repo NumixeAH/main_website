@@ -9,6 +9,8 @@ export interface Project {
   links?: { labelKey: string; url: string }[];
   /** Screenshot paths under public/ (e.g. "/projects/ecommerce-configurator/1.jpg"). Put files in public/projects/<slug>/ */
   images?: string[];
+  /** If set, links to the app-specific privacy policy at /privacy/[this slug] (must exist in lib/privacy-docs). */
+  privacySlug?: string;
 }
 
 export const projects: Project[] = [
@@ -26,6 +28,7 @@ export const projects: Project[] = [
     status: "in_progress",
     tech: ["Flutter", "Material Design", "C#", "NoSQL"],
     images: [], // e.g. ["/projects/cocktail-app/1.jpg", "/projects/cocktail-app/2.jpg"]
+    privacySlug: "cocktail-app",
   },
   {
     slug: "desktop-wpf",

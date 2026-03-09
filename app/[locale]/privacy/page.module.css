@@ -1,0 +1,82 @@
+.container {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+.backLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--fg-muted);
+  transition: color 0.2s;
+  margin-bottom: 48px;
+}
+
+.backLink:hover {
+  color: var(--accent);
+}
+
+.header {
+  margin-bottom: 48px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  font-size: 1rem;
+  color: var(--fg-muted);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-bottom: 80px;
+  max-width: 720px;
+}
+
+.paragraph {
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  line-height: 1.8;
+}
+
+.appLinks {
+  margin-top: 16px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+
+.sectionTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.list a {
+  font-weight: 600;
+  color: var(--accent);
+  transition: color 0.2s;
+}
+
+.list a:hover {
+  color: var(--accent-hover);
+}

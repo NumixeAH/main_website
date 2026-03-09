@@ -95,6 +95,17 @@ export default function ProjectPage() {
             </p>
           </div>
 
+          {project.privacySlug && (
+            <div className={styles.section}>
+              <Link
+                href={`/${locale}/privacy/${project.privacySlug}`}
+                className={styles.externalLink}
+              >
+                {pp("privacy")} →
+              </Link>
+            </div>
+          )}
+
           {project.links && project.links.length > 0 && (
             <div className={styles.section}>
               <h2 className={styles.sectionTitle}>{pp("links")}</h2>

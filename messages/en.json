@@ -1,7 +1,8 @@
 {
   "meta": {
     "title": "Sparkixe — Project development",
-    "description": "Portfolio & projects by Numixe — e-commerce, mobile app, desktop app and more."
+    "description": "Portfolio & projects by Numixe — e-commerce, mobile app, desktop app and more.",
+    "privacy_title": "Privacy policy — Sparkixe"
   },
   "nav": {
     "about": "About",
@@ -79,7 +80,20 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "built_with": "Built with Next.js"
+    "built_with": "Built with Next.js",
+    "privacy": "Privacy policy"
+  },
+  "privacy": {
+    "title": "Privacy policy",
+    "subtitle": "General policy for the Sparkixe website.",
+    "back": "Back to home",
+    "global": {
+      "intro": "This site (sparkixe.com) is a portfolio and showcase website. Data collected is limited to what is strictly necessary for the site to function.",
+      "data": "Data collected: IP address and technical data related to browsing (cookies where used for preferences). No sale of data to third parties.",
+      "rights": "You have the right to access, rectify, erase and portability (GDPR). To exercise these rights or for any questions: contact us via the Contact page.",
+      "apps": "Some applications or projects (e.g. Shake It) have their own detailed privacy policy, accessible from their project page or via the link below."
+    },
+    "app_policy": "Privacy policy for this application"
   },
   "project_page": {
     "back": "Back to projects",
@@ -89,6 +103,7 @@
     "note": "Note",
     "visit_site": "Visit site",
     "links": "Links",
-    "screenshots": "Screenshots"
+    "screenshots": "Screenshots",
+    "privacy": "Privacy policy"
   }
 }
