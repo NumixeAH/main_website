@@ -50,6 +50,14 @@
   line-height: 1.1;
 }
 
+.tagline {
+  font-size: 1.1rem;
+  color: var(--fg-muted);
+  line-height: 1.6;
+  margin-top: 16px;
+  max-width: 700px;
+}
+
 .body {
   display: flex;
   flex-direction: column;
@@ -75,6 +83,20 @@
   color: var(--fg-muted);
   line-height: 1.8;
   max-width: 700px;
+}
+
+.featureList {
+  list-style: disc;
+  padding-left: 1.4rem;
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--fg-muted);
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.featureList li {
+  margin-bottom: 8px;
 }
 
 .tech {

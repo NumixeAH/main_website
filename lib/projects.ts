@@ -5,6 +5,8 @@ export interface Project {
   translationKey: string;
   status: ProjectStatus;
   tech: string[];
+  /** Optional: number of feature_1, feature_2, ... keys in messages for this project. */
+  featuresCount?: number;
   /** Optional external links (e.g. live site, demo). Label keys are in messages under project_page.visit_site etc. */
   links?: { labelKey: string; url: string }[];
   /** Screenshot paths under public/ (e.g. "/projects/ecommerce-configurator/1.jpg"). Put files in public/projects/<slug>/ */
@@ -27,8 +29,15 @@ export const projects: Project[] = [
     translationKey: "cocktail",
     status: "in_progress",
     tech: ["Flutter", "Material Design", "C#", "NoSQL"],
+    featuresCount: 6,
     images: [], // e.g. ["/projects/cocktail-app/1.jpg", "/projects/cocktail-app/2.jpg"]
     privacySlug: "cocktail-app",
+    links: [
+      {
+        labelKey: "play_store",
+        url: "https://play.google.com/store/apps/details?id=com.sparkixe.shakeit",
+      },
+    ],
   },
   {
     slug: "desktop-wpf",

@@ -4,6 +4,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getProjectBySlug, projects } from "@/lib/projects";
+import { hasDeleteAccountPage } from "@/lib/delete-account-apps";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import styles from "./page.module.css";
@@ -62,6 +63,20 @@ export default function ProjectPage() {
           <h1 className={styles.title}>
             {pt(`${project.translationKey}.title`)}
           </h1>
+          {project.featuresCount != null &&
+            (() => {
+              try {
+                const tagline = pt(`${project.translationKey}.tagline`);
+                if (tagline && !tagline.startsWith("projects.")) return tagline;
+              } catch {
+                /* optional */
+              }
+              return null;
+            })() && (
+              <p className={styles.tagline}>
+                {pt(`${project.translationKey}.tagline`)}
+              </p>
+            )}
         </motion.div>
 
         <motion.div
@@ -76,6 +91,21 @@ export default function ProjectPage() {
               {pt(`${project.translationKey}.description`)}
             </p>
           </div>
+
+          {project.featuresCount != null && project.featuresCount > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>{pp("features_title")}</h2>
+              <ul className={styles.featureList}>
+                {Array.from({ length: project.featuresCount }, (_, i) => i + 1).map(
+                  (n) => (
+                    <li key={n}>
+                      {pt(`${project.translationKey}.feature_${n}`)}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          )}
 
           <div className={styles.section}>
             <h2 className={styles.sectionTitle}>{pp("tech")}</h2>
@@ -97,13 +127,86 @@ export default function ProjectPage() {
 
           {project.privacySlug && (
             <div className={styles.section}>
-              <Link
-                href={`/${locale}/privacy/${project.privacySlug}`}
-                className={styles.externalLink}
-              >
-                {pp("privacy")} →
-              </Link>
+              <div className={styles.externalLinks}>
+                <Link
+                  href={`/${locale}/privacy/${project.privacySlug}`}
+                  className={styles.externalLink}
+                >
+                  {pp("privacy")} →
+                </Link>
+                {hasDeleteAccountPage(project.slug) && (
+                  <Link
+                    href={`/${locale}/privacy/${project.privacySlug}/delete-account`}
+                    className={styles.externalLink}
+                  >
+                    {pp("delete_account")} →
+                  </Link>
+                )}
+              </div>
             </div>
+          )}
+
+          {project.featuresCount != null && (
+            <>
+              {(() => {
+                try {
+                  const downloadText = pt(`${project.translationKey}.download_text`);
+                  const drinkResp = pt(`${project.translationKey}.drink_responsibly`);
+                  if (
+                    downloadText &&
+                    !downloadText.startsWith("projects.") &&
+                    drinkResp &&
+                    !drinkResp.startsWith("projects.")
+                  ) {
+                    return (
+                      <div className={styles.section}>
+                        <h2 className={styles.sectionTitle}>
+                          {pp("download_title")}
+                        </h2>
+                        <p className={styles.description}>
+                          {downloadText}
+                        </p>
+                        <p className={styles.note}>{drinkResp}</p>
+                      </div>
+                    );
+                  }
+                } catch {
+                  /* optional */
+                }
+                return null;
+              })()}
+              {(() => {
+                try {
+                  const support = pt(`${project.translationKey}.support_contact`);
+                  const email = pt(`${project.translationKey}.support_email`);
+                  if (
+                    support &&
+                    !support.startsWith("projects.") &&
+                    email &&
+                    !email.startsWith("projects.")
+                  ) {
+                    return (
+                      <div className={styles.section}>
+                        <h2 className={styles.sectionTitle}>
+                          {pp("contact_legal_title")}
+                        </h2>
+                        <p className={styles.description}>
+                          <a
+                            href={`mailto:${email.trim()}`}
+                            className={styles.externalLink}
+                          >
+                            {support}
+                          </a>
+                        </p>
+                      </div>
+                    );
+                  }
+                } catch {
+                  /* optional */
+                }
+                return null;
+              })()}
+            </>
           )}
 
           {project.links && project.links.length > 0 && (

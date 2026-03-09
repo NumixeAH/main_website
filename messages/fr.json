@@ -43,9 +43,20 @@
       "note": "Démo interactive bientôt disponible"
     },
     "cocktail": {
-      "title": "Shake It!",
-      "description": "Application Android pour découvrir, sauvegarder et partager des recettes de cocktails. Bientôt disponible sur le Play Store.",
-      "note": "Bientôt sur le Play Store"
+      "title": "Shake It – Tes cocktails et mocktails, bien en main",
+      "tagline": "Crée, organise et retrouve toutes tes recettes de cocktails et mocktails. Gère ton bar à la maison, ta liste de courses et tes favoris depuis ton téléphone.",
+      "description": "Shake It est l'app qu'il te faut pour ne plus jamais te demander « qu'est-ce que je peux faire avec ce qu'il y a dans mon bar ? ». Tu renseignes les ingrédients que tu as chez toi et l'app te montre en un coup d'œil les cocktails que tu peux faire, ceux à un ou deux ingrédients près, et ceux pour lesquels il faudra compléter la liste. Tu peux aussi créer tes propres recettes, les enregistrer, les retrouver sur tous tes appareils et les partager.",
+      "note": "Disponible sur le Google Play Store.",
+      "feature_1": "Mon bar – Liste tes ingrédients et vois tout de suite quels cocktails tu peux réaliser.",
+      "feature_2": "Liste de courses – Génère une liste à partir des ingrédients manquants pour tes recettes ou ton panier.",
+      "feature_3": "Recettes personnelles – Crée, modifie et sauvegarde tes cocktails et mocktails (ingrédients, mesures, instructions).",
+      "feature_4": "Favoris et recherche – Retrouve rapidement une recette avec la recherche, les catégories et les favoris.",
+      "feature_5": "Personnalisation – Langue, thème (clair/sombre), système de mesure (cl, ml, oz) et page d'accueil au choix.",
+      "feature_6": "Compte sécurisé – Tes données sont synchronisées et protégées ; possibilité d'upgrade Premium.",
+      "download_text": "Disponible sur le Google Play Store.",
+      "drink_responsibly": "Bois toujours de façon responsable.",
+      "support_contact": "Support / contact : support_shake_it@sparkixe.com",
+      "support_email": "support_shake_it@sparkixe.com"
     },
     "desktop": {
       "title": "Application Desktop - Tablette",
@@ -61,7 +72,8 @@
     "backend": "Backend",
     "desktop": "Desktop",
     "devops": "DevOps",
-    "design": "Design"
+    "design": "Design",
+    "tools": "Outils"
   },
   "contact": {
     "title": "Contact",
@@ -95,15 +107,35 @@
     },
     "app_policy": "Politique dédiée à cette application"
   },
+  "delete_account": {
+    "title": "Suppression de compte",
+    "subtitle": "Shake It — Sparkixe",
+    "procedure_title": "Comment demander la suppression de votre compte et de vos données",
+    "procedure_in_app": "Dans l'application Shake It : ouvrez la page « User settings » (Paramètres utilisateur) et appuyez sur « Supprimer le compte ».",
+    "procedure_email": "Ou contactez-nous par e-mail à support_shake_it@sparkixe.com en indiquant l'adresse e-mail de votre compte et une preuve d'identité du compte (ex. capture d'écran de la page de profil ou du compte). Nous traiterons votre demande dans les délais indiqués ci-dessous.",
+    "data_deleted_title": "Données supprimées",
+    "data_deleted": "Lors de la suppression du compte, les données suivantes sont supprimées : compte utilisateur (e-mail, nom d'affichage, photo de profil), recettes personnelles, contenu de « Mon bar », favoris, panier, préférences (langue, thème, mesures, page d'accueil). Les données techniques (logs) sont supprimées ou anonymisées dans un délai raisonnable.",
+    "data_retained_title": "Données conservées",
+    "data_retained": "Nous ne conservons aucune donnée personnelle au-delà de la suppression, sauf obligation légale (ex. facturation, litiges) pour une durée limitée.",
+    "retention_title": "Délai de traitement",
+    "retention": "La suppression est traitée dans un délai raisonnable (sous 30 jours). Les données sont effacées définitivement dans les délais techniques nécessaires.",
+    "back_privacy": "Retour à la politique de confidentialité Shake It",
+    "back_project": "Retour à la page du projet Shake It"
+  },
   "project_page": {
     "back": "Retour aux projets",
     "status": "Statut",
     "tech": "Technologies",
     "about_project": "À propos du projet",
+    "features_title": "Fonctionnalités principales",
+    "download_title": "Téléchargement",
+    "contact_legal_title": "Contact et légal",
     "note": "Note",
     "visit_site": "Voir le site",
+    "play_store": "Télécharger sur le Play Store",
     "links": "Liens",
     "screenshots": "Captures d'écran",
-    "privacy": "Politique de confidentialité"
+    "privacy": "Politique de confidentialité",
+    "delete_account": "Suppression de compte"
   }
 }

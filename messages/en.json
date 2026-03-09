@@ -43,9 +43,20 @@
       "note": "Interactive demo coming soon"
     },
     "cocktail": {
-      "title": "Shake It!",
-      "description": "Android app to discover, save and share cocktail recipes. Coming soon to the Play Store.",
-      "note": "Coming to the Play Store"
+      "title": "Shake It – Your cocktails and mocktails, right in your hand",
+      "tagline": "Create, organize and find all your cocktail and mocktail recipes. Manage your home bar, shopping list and favourites from your phone.",
+      "description": "Shake It is the app you need to never wonder again « what can I make with what's in my bar? ». You enter the ingredients you have at home and the app shows at a glance which cocktails you can make, which are one or two ingredients away, and which require a quick shopping trip. You can also create your own recipes, save them, access them on all your devices and share them.",
+      "note": "Available on the Google Play Store.",
+      "feature_1": "My bar – List your ingredients and see straight away which cocktails you can make.",
+      "feature_2": "Shopping list – Generate a list from missing ingredients for your recipes or your basket.",
+      "feature_3": "Personal recipes – Create, edit and save your cocktails and mocktails (ingredients, measures, instructions).",
+      "feature_4": "Favourites and search – Quickly find a recipe with search, categories and favourites.",
+      "feature_5": "Customization – Language, theme (light/dark), measurement system (cl, ml, oz) and home page of your choice.",
+      "feature_6": "Secure account – Your data is synced and protected; Premium upgrade available.",
+      "download_text": "Available on the Google Play Store.",
+      "drink_responsibly": "Always drink responsibly.",
+      "support_contact": "Support / contact: support_shake_it@sparkixe.com",
+      "support_email": "support_shake_it@sparkixe.com"
     },
     "desktop": {
       "title": "Desktop App - Tablet",
@@ -61,7 +72,8 @@
     "backend": "Backend",
     "desktop": "Desktop",
     "devops": "DevOps",
-    "design": "Design"
+    "design": "Design",
+    "tools": "Tools"
   },
   "contact": {
     "title": "Contact",
@@ -95,15 +107,35 @@
     },
     "app_policy": "Privacy policy for this application"
   },
+  "delete_account": {
+    "title": "Account deletion",
+    "subtitle": "Shake It — Sparkixe",
+    "procedure_title": "How to request deletion of your account and associated data",
+    "procedure_in_app": "In the Shake It app: open the « User settings » page and tap « Supprimer le compte » (Delete account).",
+    "procedure_email": "Or contact us by email at support_shake_it@sparkixe.com with the email address of your account and proof of account ownership (e.g. screenshot of your profile or account page). We will process your request within the timeframes set out below.",
+    "data_deleted_title": "Data deleted",
+    "data_deleted": "When your account is deleted, the following data is removed: account data (email, display name, profile picture), personal recipes, « My Bar » content, favourites, cart, and preferences (language, theme, measurement system, home page). Technical data (logs) is deleted or anonymised within a reasonable timeframe.",
+    "data_retained_title": "Data retained",
+    "data_retained": "We do not keep any personal data after deletion, except where required by law (e.g. billing, disputes) for a limited period.",
+    "retention_title": "Processing time",
+    "retention": "Deletion requests are processed within a reasonable timeframe (within 30 days). Data is permanently erased within the necessary technical timeframes.",
+    "back_privacy": "Back to Shake It privacy policy",
+    "back_project": "Back to Shake It project page"
+  },
   "project_page": {
     "back": "Back to projects",
     "status": "Status",
     "tech": "Technologies",
     "about_project": "About the project",
+    "features_title": "Main features",
+    "download_title": "Download",
+    "contact_legal_title": "Contact & legal",
     "note": "Note",
     "visit_site": "Visit site",
+    "play_store": "Get it on the Play Store",
     "links": "Links",
     "screenshots": "Screenshots",
-    "privacy": "Privacy policy"
+    "privacy": "Privacy policy",
+    "delete_account": "Account deletion"
   }
 }

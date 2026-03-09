@@ -9,6 +9,7 @@ import {
   getPrivacyDocPath,
   privacyDocBySlug,
 } from "@/lib/privacy-docs";
+import { hasDeleteAccountPage } from "@/lib/delete-account-apps";
 import { getProjectBySlug } from "@/lib/projects";
 import styles from "./page.module.css";
 
@@ -67,6 +68,15 @@ export default async function AppPrivacyPage({ params }: Props) {
         <header className={styles.header}>
           <h1 className={styles.title}>{appTitle}</h1>
           <p className={styles.subtitle}>{t("app_policy")}</p>
+          {hasDeleteAccountPage(appSlug) && (
+            <Link
+              href={`/${locale}/privacy/${appSlug}/delete-account`}
+              className={styles.backLink}
+              style={{ marginTop: 16, display: "inline-block" }}
+            >
+              {pp("delete_account")} →
+            </Link>
+          )}
         </header>
 
         <article className={styles.body}>
