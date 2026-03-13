@@ -150,33 +150,6 @@ export default function ProjectPage() {
             <>
               {(() => {
                 try {
-                  const downloadText = pt(`${project.translationKey}.download_text`);
-                  const drinkResp = pt(`${project.translationKey}.drink_responsibly`);
-                  if (
-                    downloadText &&
-                    !downloadText.startsWith("projects.") &&
-                    drinkResp &&
-                    !drinkResp.startsWith("projects.")
-                  ) {
-                    return (
-                      <div className={styles.section}>
-                        <h2 className={styles.sectionTitle}>
-                          {pp("download_title")}
-                        </h2>
-                        <p className={styles.description}>
-                          {downloadText}
-                        </p>
-                        <p className={styles.note}>{drinkResp}</p>
-                      </div>
-                    );
-                  }
-                } catch {
-                  /* optional */
-                }
-                return null;
-              })()}
-              {(() => {
-                try {
                   const support = pt(`${project.translationKey}.support_contact`);
                   const email = pt(`${project.translationKey}.support_email`);
                   if (

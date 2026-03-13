@@ -20,17 +20,23 @@ export const projects: Project[] = [
     slug: "ecommerce-configurator",
     translationKey: "ecommerce",
     status: "completed",
-    tech: ["Next.js", "React", "TypeScript", "SVG", "Node.js"],
-    links: [{ labelKey: "visit_site", url: "https://example.com" }],
-    images: [], // e.g. ["/projects/ecommerce-configurator/1.jpg", "/projects/ecommerce-configurator/2.jpg"]
+    tech: ["Next.js", "React", "TypeScript", "SVG", "Node.js, Shopify"],
+    links: [{ labelKey: "visit_site", url: "https://www.smitsdecals.be/" }],
+    images: ["/projects/ecommerce-configurator/1.jpg"],
   },
   {
     slug: "cocktail-app",
     translationKey: "cocktail",
     status: "in_progress",
-    tech: ["Flutter", "Material Design", "C#", "NoSQL"],
+    tech: ["Flutter","C#", "NoSQL"],
     featuresCount: 6,
-    images: [], // e.g. ["/projects/cocktail-app/1.jpg", "/projects/cocktail-app/2.jpg"]
+    images: ["/projects/cocktail-app/1.jpg",
+      "/projects/cocktail-app/2.jpg",
+      "/projects/cocktail-app/3.jpg",
+      "/projects/cocktail-app/4.jpg",
+      "/projects/cocktail-app/5.jpg",
+      "/projects/cocktail-app/6.jpg",
+      "/projects/cocktail-app/7.jpg"],
     privacySlug: "cocktail-app",
     links: [
       {

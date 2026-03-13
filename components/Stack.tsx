@@ -12,7 +12,7 @@ const stackData = [
   },
   {
     key: "mobile",
-    items: ["Flutter", "Material Design"],
+    items: ["Flutter"],
   },
   {
     key: "backend",

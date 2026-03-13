@@ -10,7 +10,7 @@ export default function Contact() {
   const t = useTranslations("contact");
 
   const socials = [
-    { label: "GitHub", url: "https://github.com/Numixe", icon: "GH" },
+    //{ label: "GitHub", url: "https://github.com/Numixe", icon: "GH" },
     { label: "LinkedIn", url: "https://linkedin.com/in/antoine-hagiyannakis", icon: "LI" }
   ];
 
