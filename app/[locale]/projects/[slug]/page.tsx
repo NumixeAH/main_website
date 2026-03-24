@@ -118,13 +118,6 @@ export default function ProjectPage() {
             </div>
           </div>
 
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>{pp("note")}</h2>
-            <p className={styles.note}>
-              {pt(`${project.translationKey}.note`)}
-            </p>
-          </div>
-
           {project.privacySlug && (
             <div className={styles.section}>
               <div className={styles.externalLinks}>

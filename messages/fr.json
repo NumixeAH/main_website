@@ -37,10 +37,11 @@
     "status_in_progress": "En cours",
     "view_project": "Voir le projet",
     "visit_site": "Voir le site",
+    "view_svg_demo": "Voir la démo SVG",
     "ecommerce": {
       "title": "E-Commerce + Configurateur SVG",
       "description": "Plateforme e-commerce complète avec un configurateur SVG interactif permettant la personnalisation de produits.",
-      "note": "Démo interactive bientôt disponible"
+      "note": "Démo interactive disponible"
     },
     "cocktail": {
       "title": "Shake It – Tes cocktails et mocktails, bien en main",
@@ -132,6 +133,7 @@
     "contact_legal_title": "Contact et légal",
     "note": "Note",
     "visit_site": "Voir le site",
+    "view_svg_demo": "Voir la démo SVG",
     "play_store": "Bientot disponible sur le Play Store",
     "links": "Liens",
     "screenshots": "Captures d'écran",

@@ -21,7 +21,10 @@ export const projects: Project[] = [
     translationKey: "ecommerce",
     status: "completed",
     tech: ["Next.js", "React", "TypeScript", "SVG", "Node.js, Shopify"],
-    links: [{ labelKey: "visit_site", url: "https://www.smitsdecals.be/" }],
+    links: [
+      { labelKey: "visit_site", url: "https://www.smitsdecals.be/" },
+      { labelKey: "view_svg_demo", url: "https://demo-svg-configurator.sparkixe.com/" },
+    ],
     images: ["/projects/ecommerce-configurator/1.jpg"],
   },
   {
