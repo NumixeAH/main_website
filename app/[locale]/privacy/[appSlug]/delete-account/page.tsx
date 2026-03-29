@@ -5,6 +5,8 @@ import Link from "next/link";
 import Footer from "@/components/Footer";
 import { hasDeleteAccountPage, deleteAccountAppSlugs } from "@/lib/delete-account-apps";
 import { getProjectBySlug } from "@/lib/projects";
+import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/lib/site-url";
 import styles from "./page.module.css";
 
 type Props = {
@@ -22,8 +24,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const pt = await getTranslations({ locale, namespace: "projects" });
   const project = getProjectBySlug(appSlug);
   const appTitle = project ? pt(`${project.translationKey}.title`) : appSlug;
+  const base = getSiteUrl();
+  const title = `${t("title")} — ${appTitle}`;
+  const description = t("subtitle");
+  const canonicalPath = `/${locale}/privacy/${appSlug}/delete-account`;
+
+  const languages: Record<string, string> = {
+    "x-default": `${base}/${routing.defaultLocale}/privacy/${appSlug}/delete-account`,
+  };
+  for (const l of routing.locales) {
+    languages[l] = `${base}/${l}/privacy/${appSlug}/delete-account`;
+  }
+
   return {
-    title: `${t("title")} — ${appTitle}`,
+    title,
+    description,
+    alternates: { canonical: canonicalPath, languages },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      type: "article",
+      siteName: "Sparkixe",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

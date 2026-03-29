@@ -11,6 +11,8 @@ import {
 } from "@/lib/privacy-docs";
 import { hasDeleteAccountPage } from "@/lib/delete-account-apps";
 import { getProjectBySlug } from "@/lib/projects";
+import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/lib/site-url";
 import styles from "./page.module.css";
 
 type Props = {
@@ -28,10 +30,42 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProjectBySlug(appSlug);
   const t = await getTranslations({ locale, namespace: "meta" });
   const pt = await getTranslations({ locale, namespace: "projects" });
+  const base = getSiteUrl();
+  const policyLabel =
+    locale === "fr" ? "Politique de confidentialité" : "Privacy policy";
   const title = project
-    ? `${pt(`${project.translationKey}.title`)} — ${locale === "fr" ? "Politique de confidentialité" : "Privacy policy"}`
+    ? `${pt(`${project.translationKey}.title`)} — ${policyLabel}`
     : t("privacy_title");
-  return { title };
+  const description = project
+    ? `${pt(`${project.translationKey}.title`)} — ${policyLabel}`
+    : t("privacy_title");
+  const canonicalPath = `/${locale}/privacy/${appSlug}`;
+
+  const languages: Record<string, string> = {
+    "x-default": `${base}/${routing.defaultLocale}/privacy/${appSlug}`,
+  };
+  for (const l of routing.locales) {
+    languages[l] = `${base}/${l}/privacy/${appSlug}`;
+  }
+
+  return {
+    title,
+    description,
+    alternates: { canonical: canonicalPath, languages },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      type: "article",
+      siteName: "Sparkixe",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
 }
 
 export default async function AppPrivacyPage({ params }: Props) {

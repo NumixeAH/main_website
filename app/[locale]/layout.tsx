@@ -4,6 +4,7 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { ThemeProvider } from "next-themes";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/lib/site-url";
 import Nav from "@/components/Nav";
 import SparkBackground from "@/components/ui/SparkBackground";
 import PageTransition from "@/components/ui/PageTransition";
@@ -16,10 +17,39 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const base = getSiteUrl();
   const t = await getTranslations({ locale, namespace: "meta" });
+  const title = t("title");
+  const description = t("description");
+
+  const languages: Record<string, string> = {
+    "x-default": `${base}/${routing.defaultLocale}`,
+  };
+  for (const l of routing.locales) {
+    languages[l] = `${base}/${l}`;
+  }
+
   return {
-    title: t("title"),
-    description: t("description"),
+    metadataBase: new URL(base),
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}`,
+      languages,
+    },
+    openGraph: {
+      title,
+      description,
+      url: `/${locale}`,
+      siteName: "Sparkixe",
+      type: "website",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

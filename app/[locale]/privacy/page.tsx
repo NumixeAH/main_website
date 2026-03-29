@@ -2,14 +2,46 @@ import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
 import Link from "next/link";
 import Footer from "@/components/Footer";
+import { routing } from "@/i18n/routing";
+import { getSiteUrl } from "@/lib/site-url";
 import styles from "./page.module.css";
 
 type Props = { params: Promise<{ locale: string }> };
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { locale } = await params;
+  const base = getSiteUrl();
   const t = await getTranslations({ locale, namespace: "meta" });
-  return { title: t("privacy_title") };
+  const tp = await getTranslations({ locale, namespace: "privacy" });
+  const title = t("privacy_title");
+  const description = tp("subtitle");
+  const canonicalPath = `/${locale}/privacy`;
+
+  const languages: Record<string, string> = {
+    "x-default": `${base}/${routing.defaultLocale}/privacy`,
+  };
+  for (const l of routing.locales) {
+    languages[l] = `${base}/${l}/privacy`;
+  }
+
+  return {
+    title,
+    description,
+    alternates: { canonical: canonicalPath, languages },
+    openGraph: {
+      title,
+      description,
+      url: canonicalPath,
+      type: "website",
+      siteName: "Sparkixe",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
+  };
 }
 
 export default async function PrivacyPage({ params }: Props) {

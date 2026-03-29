@@ -1,0 +1,235 @@
+"use client";
+
+import { useTranslations } from "next-intl";
+import { motion } from "framer-motion";
+import type { Project } from "@/lib/projects";
+import { projects } from "@/lib/projects";
+import { hasDeleteAccountPage } from "@/lib/delete-account-apps";
+import Link from "next/link";
+import Footer from "@/components/Footer";
+import styles from "./page.module.css";
+
+type Props = {
+  project: Project;
+  slug: string;
+  locale: string;
+};
+
+export default function ProjectPageClient({ project, slug, locale }: Props) {
+  const pt = useTranslations("projects");
+  const pp = useTranslations("project_page");
+
+  return (
+    <main className={styles.container}>
+      <section className="section">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <Link href={`/${locale}/#projects`} className={styles.backLink}>
+            ← {pp("back")}
+          </Link>
+        </motion.div>
+
+        <motion.div
+          className={styles.header}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          <span
+            className={`${styles.status} ${project.status === "completed" ? styles.statusCompleted : styles.statusProgress}`}
+          >
+            {pp("status")}:{" "}
+            {project.status === "completed"
+              ? pt("status_completed")
+              : pt("status_in_progress")}
+          </span>
+
+          <h1 className={styles.title}>
+            {pt(`${project.translationKey}.title`)}
+          </h1>
+          {project.featuresCount != null &&
+            (() => {
+              try {
+                const tagline = pt(`${project.translationKey}.tagline`);
+                if (tagline && !tagline.startsWith("projects.")) return tagline;
+              } catch {
+                /* optional */
+              }
+              return null;
+            })() && (
+              <p className={styles.tagline}>
+                {pt(`${project.translationKey}.tagline`)}
+              </p>
+            )}
+        </motion.div>
+
+        <motion.div
+          className={styles.body}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>{pp("about_project")}</h2>
+            <p className={styles.description}>
+              {pt(`${project.translationKey}.description`)}
+            </p>
+          </div>
+
+          {project.featuresCount != null && project.featuresCount > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>{pp("features_title")}</h2>
+              <ul className={styles.featureList}>
+                {Array.from({ length: project.featuresCount }, (_, i) => i + 1).map(
+                  (n) => (
+                    <li key={n}>
+                      {pt(`${project.translationKey}.feature_${n}`)}
+                    </li>
+                  )
+                )}
+              </ul>
+            </div>
+          )}
+
+          <div className={styles.section}>
+            <h2 className={styles.sectionTitle}>{pp("tech")}</h2>
+            <div className={styles.tech}>
+              {project.tech.map((tech) => (
+                <span key={tech} className={styles.tag}>
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          {project.privacySlug && (
+            <div className={styles.section}>
+              <div className={styles.externalLinks}>
+                <Link
+                  href={`/${locale}/privacy/${project.privacySlug}`}
+                  className={styles.externalLink}
+                >
+                  {pp("privacy")} →
+                </Link>
+                {hasDeleteAccountPage(project.slug) && (
+                  <Link
+                    href={`/${locale}/privacy/${project.privacySlug}/delete-account`}
+                    className={styles.externalLink}
+                  >
+                    {pp("delete_account")} →
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
+
+          {project.featuresCount != null && (
+            <>
+              {(() => {
+                try {
+                  const support = pt(`${project.translationKey}.support_contact`);
+                  const email = pt(`${project.translationKey}.support_email`);
+                  if (
+                    support &&
+                    !support.startsWith("projects.") &&
+                    email &&
+                    !email.startsWith("projects.")
+                  ) {
+                    return (
+                      <div className={styles.section}>
+                        <h2 className={styles.sectionTitle}>
+                          {pp("contact_legal_title")}
+                        </h2>
+                        <p className={styles.description}>
+                          <a
+                            href={`mailto:${email.trim()}`}
+                            className={styles.externalLink}
+                          >
+                            {support}
+                          </a>
+                        </p>
+                      </div>
+                    );
+                  }
+                } catch {
+                  /* optional */
+                }
+                return null;
+              })()}
+            </>
+          )}
+
+          {project.links && project.links.length > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>{pp("links")}</h2>
+              <div className={styles.externalLinks}>
+                {project.links.map((link) => (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.externalLink}
+                  >
+                    {pp(link.labelKey)} ↗
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {project.images && project.images.length > 0 && (
+            <div className={styles.section}>
+              <h2 className={styles.sectionTitle}>{pp("screenshots")}</h2>
+              <div className={styles.screenshots}>
+                {project.images.map((src, i) => (
+                  <a
+                    key={src}
+                    href={src}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.screenshotWrap}
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={src}
+                      alt={`${pt(`${project.translationKey}.title`)} screenshot ${i + 1}`}
+                      className={styles.screenshot}
+                    />
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </motion.div>
+
+        <motion.div
+          className={styles.otherProjects}
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+        >
+          <h2 className={styles.sectionTitle}>{pt("title")}</h2>
+          <div className={styles.projectLinks}>
+            {projects
+              .filter((p) => p.slug !== slug)
+              .map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/${locale}/projects/${p.slug}`}
+                  className={styles.projectLink}
+                >
+                  {pt(`${p.translationKey}.title`)} →
+                </Link>
+              ))}
+          </div>
+        </motion.div>
+      </section>
+
+      <Footer />
+    </main>
+  );
+}

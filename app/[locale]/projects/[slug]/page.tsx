@@ -1,248 +1,96 @@
-"use client";
-
-import { useTranslations, useLocale } from "next-intl";
-import { useParams } from "next/navigation";
-import { motion } from "framer-motion";
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import { getTranslations } from "next-intl/server";
+import { routing } from "@/i18n/routing";
 import { getProjectBySlug, projects } from "@/lib/projects";
-import { hasDeleteAccountPage } from "@/lib/delete-account-apps";
-import Link from "next/link";
-import Footer from "@/components/Footer";
-import styles from "./page.module.css";
+import { getSiteUrl } from "@/lib/site-url";
+import { projectCreativeWorkJsonLd } from "@/lib/seo-jsonld";
+import ProjectPageClient from "./ProjectPageClient";
 
-export default function ProjectPage() {
-  const t = useTranslations();
-  const pt = useTranslations("projects");
-  const pp = useTranslations("project_page");
-  const locale = useLocale();
-  const params = useParams();
-  const slug = params.slug as string;
+type Props = {
+  params: Promise<{ locale: string; slug: string }>;
+};
 
+export function generateStaticParams() {
+  return projects.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { locale, slug } = await params;
   const project = getProjectBySlug(slug);
-
   if (!project) {
-    return (
-      <main className={styles.container}>
-        <div className="section">
-          <h1>404</h1>
-          <Link href={`/${locale}`} className={styles.backLink}>
-            {pp("back")}
-          </Link>
-        </div>
-      </main>
-    );
+    return { title: "404 — Sparkixe" };
   }
 
+  const base = getSiteUrl();
+  const pt = await getTranslations({ locale, namespace: "projects" });
+  const title = pt(`${project.translationKey}.title`);
+  const description = pt(`${project.translationKey}.description`);
+  const pageTitle = `${title} — Sparkixe`;
+  const canonicalPath = `/${locale}/projects/${slug}`;
+  const ogImage = project.images?.[0]
+    ? `${base}${project.images[0]}`
+    : undefined;
+
+  const languages: Record<string, string> = {
+    "x-default": `${base}/${routing.defaultLocale}/projects/${slug}`,
+  };
+  for (const l of routing.locales) {
+    languages[l] = `${base}/${l}/projects/${slug}`;
+  }
+
+  return {
+    title: pageTitle,
+    description,
+    alternates: {
+      canonical: canonicalPath,
+      languages,
+    },
+    openGraph: {
+      title: pageTitle,
+      description,
+      url: canonicalPath,
+      type: "article",
+      siteName: "Sparkixe",
+      locale: locale === "fr" ? "fr_FR" : "en_US",
+      ...(ogImage ? { images: [{ url: ogImage }] } : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: pageTitle,
+      description,
+      ...(ogImage ? { images: [ogImage] } : {}),
+    },
+  };
+}
+
+export default async function ProjectPage({ params }: Props) {
+  const { locale, slug } = await params;
+  const project = getProjectBySlug(slug);
+  if (!project) {
+    notFound();
+  }
+
+  const base = getSiteUrl();
+  const pt = await getTranslations({ locale, namespace: "projects" });
+  const title = pt(`${project.translationKey}.title`);
+  const description = pt(`${project.translationKey}.description`);
+  const jsonLd = projectCreativeWorkJsonLd({
+    baseUrl: base,
+    locale,
+    slug,
+    title,
+    description,
+    project,
+  });
+
   return (
-    <main className={styles.container}>
-      <section className="section">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <Link href={`/${locale}/#projects`} className={styles.backLink}>
-            ← {pp("back")}
-          </Link>
-        </motion.div>
-
-        <motion.div
-          className={styles.header}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
-          <span
-            className={`${styles.status} ${project.status === "completed" ? styles.statusCompleted : styles.statusProgress}`}
-          >
-            {pp("status")}:{" "}
-            {project.status === "completed"
-              ? pt("status_completed")
-              : pt("status_in_progress")}
-          </span>
-
-          <h1 className={styles.title}>
-            {pt(`${project.translationKey}.title`)}
-          </h1>
-          {project.featuresCount != null &&
-            (() => {
-              try {
-                const tagline = pt(`${project.translationKey}.tagline`);
-                if (tagline && !tagline.startsWith("projects.")) return tagline;
-              } catch {
-                /* optional */
-              }
-              return null;
-            })() && (
-              <p className={styles.tagline}>
-                {pt(`${project.translationKey}.tagline`)}
-              </p>
-            )}
-        </motion.div>
-
-        <motion.div
-          className={styles.body}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>{pp("about_project")}</h2>
-            <p className={styles.description}>
-              {pt(`${project.translationKey}.description`)}
-            </p>
-          </div>
-
-          {project.featuresCount != null && project.featuresCount > 0 && (
-            <div className={styles.section}>
-              <h2 className={styles.sectionTitle}>{pp("features_title")}</h2>
-              <ul className={styles.featureList}>
-                {Array.from({ length: project.featuresCount }, (_, i) => i + 1).map(
-                  (n) => (
-                    <li key={n}>
-                      {pt(`${project.translationKey}.feature_${n}`)}
-                    </li>
-                  )
-                )}
-              </ul>
-            </div>
-          )}
-
-          <div className={styles.section}>
-            <h2 className={styles.sectionTitle}>{pp("tech")}</h2>
-            <div className={styles.tech}>
-              {project.tech.map((tech) => (
-                <span key={tech} className={styles.tag}>
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {project.privacySlug && (
-            <div className={styles.section}>
-              <div className={styles.externalLinks}>
-                <Link
-                  href={`/${locale}/privacy/${project.privacySlug}`}
-                  className={styles.externalLink}
-                >
-                  {pp("privacy")} →
-                </Link>
-                {hasDeleteAccountPage(project.slug) && (
-                  <Link
-                    href={`/${locale}/privacy/${project.privacySlug}/delete-account`}
-                    className={styles.externalLink}
-                  >
-                    {pp("delete_account")} →
-                  </Link>
-                )}
-              </div>
-            </div>
-          )}
-
-          {project.featuresCount != null && (
-            <>
-              {(() => {
-                try {
-                  const support = pt(`${project.translationKey}.support_contact`);
-                  const email = pt(`${project.translationKey}.support_email`);
-                  if (
-                    support &&
-                    !support.startsWith("projects.") &&
-                    email &&
-                    !email.startsWith("projects.")
-                  ) {
-                    return (
-                      <div className={styles.section}>
-                        <h2 className={styles.sectionTitle}>
-                          {pp("contact_legal_title")}
-                        </h2>
-                        <p className={styles.description}>
-                          <a
-                            href={`mailto:${email.trim()}`}
-                            className={styles.externalLink}
-                          >
-                            {support}
-                          </a>
-                        </p>
-                      </div>
-                    );
-                  }
-                } catch {
-                  /* optional */
-                }
-                return null;
-              })()}
-            </>
-          )}
-
-          {project.links && project.links.length > 0 && (
-            <div className={styles.section}>
-              <h2 className={styles.sectionTitle}>{pp("links")}</h2>
-              <div className={styles.externalLinks}>
-                {project.links.map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.externalLink}
-                  >
-                    {pp(link.labelKey)} ↗
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {project.images && project.images.length > 0 && (
-            <div className={styles.section}>
-              <h2 className={styles.sectionTitle}>{pp("screenshots")}</h2>
-              <div className={styles.screenshots}>
-                {project.images.map((src, i) => (
-                  <a
-                    key={src}
-                    href={src}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.screenshotWrap}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={src}
-                      alt={`${pt(`${project.translationKey}.title`)} screenshot ${i + 1}`}
-                      className={styles.screenshot}
-                    />
-                  </a>
-                ))}
-              </div>
-            </div>
-          )}
-        </motion.div>
-
-        <motion.div
-          className={styles.otherProjects}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-        >
-          <h2 className={styles.sectionTitle}>{pt("title")}</h2>
-          <div className={styles.projectLinks}>
-            {projects
-              .filter((p) => p.slug !== slug)
-              .map((p) => (
-                <Link
-                  key={p.slug}
-                  href={`/${locale}/projects/${p.slug}`}
-                  className={styles.projectLink}
-                >
-                  {pt(`${p.translationKey}.title`)} →
-                </Link>
-              ))}
-          </div>
-        </motion.div>
-      </section>
-
-      <Footer />
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <ProjectPageClient project={project} slug={slug} locale={locale} />
+    </>
   );
 }
