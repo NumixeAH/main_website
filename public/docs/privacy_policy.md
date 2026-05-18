@@ -1,6 +1,6 @@
 # Politique de confidentialité / Privacy Policy
 
-**Shake It** – Dernière mise à jour / Last updated: 2026-03-09
+**Shake It** – Dernière mise à jour / Last updated: 2026-05-18
 
 ---
 
@@ -17,16 +17,23 @@ Contact : **support_shake_it@sparkixe.com**
 
 Nous collectons les données suivantes :
 
-- **Compte utilisateur** : adresse e-mail, mot de passe (stocké de manière sécurisée et non lisible par nous), nom d’affichage (pseudo)(optionel), photo de profil si vous en ajoutez une, et préférence de visibilité du profil (public/privé).
-- **Données liées à l’utilisation** : recettes que vous créez (cocktails, ingrédients, mesures, instructions), contenu de « Mon bar », favoris, panier, préférences (langue, thème, système de mesure, page d’accueil). Ces données sont associées à votre compte pour vous permettre de les retrouver sur tous vos appareils.
+- **Compte utilisateur** : adresse e-mail, mot de passe (stocké de manière sécurisée et non lisible par nous), nom d’affichage (pseudo) (optionnel), photo de profil si vous en ajoutez une, et préférence de visibilité du profil (public/privé).
+- **Données liées à l’utilisation** : recettes que vous créez (cocktails, ingrédients, mesures, instructions, **images de recette** si vous en ajoutez une), contenu de « Mon bar », favoris, panier, préférences (langue, thème, système de mesure, page d’accueil). Ces données sont associées à votre compte pour vous permettre de les retrouver sur tous vos appareils.
+- **Photos** : lorsque vous ajoutez une photo de profil ou une image à une recette, **cette photo est collectée** et stockée sur nos serveurs pour l’afficher dans l’application. Voir la section « Photos et fichiers sur l’appareil » ci-dessous pour le mode d’accès sur votre téléphone.
 - **Données techniques** : token d’authentification pour la connexion au serveur, logs techniques (par ex. erreurs) afin d’assurer le bon fonctionnement du service. Nous ne vendons pas ces données à des tiers.
+
+#### Photos et fichiers sur l’appareil
+
+L’application **ne demande pas** un accès permanent à votre galerie photos ni un accès général aux fichiers stockés sur l’appareil.
+
+Lorsque vous choisissez d’ajouter une image (profil ou recette), la sélection se fait **à la demande**, via le sélecteur de photos du système (Android/iOS) ou l’appareil photo — selon votre action. **Seule l’image que vous sélectionnez explicitement** est transmise à nos serveurs. Nous ne parcourons pas, ne lisons pas et ne conservons pas d’accès à l’ensemble de votre bibliothèque photo ou de vos fichiers locaux.
 
 Si vous utilisez notre site web, des cookies ou technologies similaires peuvent être utilisés pour le fonctionnement du site ; vous pouvez gérer vos préférences dans les paramètres de votre navigateur.
 
 ### 3. Finalités et bases légales
 
 - **Exécution du contrat** : création et gestion de votre compte, sauvegarde de vos recettes et préférences, synchronisation entre appareils, achats in-app le cas échéant.
-- **Consentement** : envoi de communications marketing (uniquement si vous avez accepté), utilisation de la photo de profil et visibilité publique du profil.
+- **Consentement** : envoi de communications marketing (uniquement si vous avez accepté), utilisation de la photo de profil, des images de recette que vous ajoutez, et visibilité publique du profil.
 - **Intérêt légitime** : sécurité du service, prévention des abus, amélioration technique et support.
 
 Nous n'utilisons pas vos données à des fins de profilage publicitaire non conforme à votre consentement.
@@ -80,15 +87,22 @@ Contact: **support_shake_it@sparkixe.com**
 We collect the following data:
 
 - **Account data**: email address, password (stored securely and not readable by us), display name (optional), profile picture if you add one, and profile visibility preference (public/private).
-- **Usage-related data**: recipes you create (cocktails, ingredients, measurements, instructions), “My Bar” content, favorites, cart, and preferences (language, theme, measurement system, home page). This data is linked to your account so you can access it across devices.
+- **Usage-related data**: recipes you create (cocktails, ingredients, measurements, instructions, **recipe images** if you add one), “My Bar” content, favorites, cart, and preferences (language, theme, measurement system, home page). This data is linked to your account so you can access it across devices.
+- **Photos**: when you add a profile picture or an image to a recipe, **that photo is collected** and stored on our servers to display it in the app. See “Photos and files on your device” below for how access works on your phone.
 - **Technical data**: authentication token for server connection, technical logs (e.g. errors) to ensure the service runs properly. We do not sell this data to third parties.
+
+#### Photos and files on your device
+
+The app **does not request** permanent access to your photo gallery or broad access to files stored on your device.
+
+When you choose to add an image (profile or recipe), selection happens **on demand**, through the system photo picker (Android/iOS) or the camera — depending on what you tap. **Only the image you explicitly select** is sent to our servers. We do not browse, read, or retain access to your entire photo library or local files.
 
 If you use our website, cookies or similar technologies may be used for site operation; you can manage your preferences in your browser settings.
 
 ### 3. Purposes and legal basis
 
 - **Contract performance**: creating and managing your account, saving your recipes and preferences, syncing across devices, in-app purchases where applicable.
-- **Consent**: sending marketing communications (only if you have agreed), use of profile picture and public profile visibility.
+- **Consent**: sending marketing communications (only if you have agreed), use of profile picture and recipe images you add, and public profile visibility.
 - **Legitimate interest**: service security, abuse prevention, technical improvement and support.
 
 We do not use your data for advertising profiling that is not in line with your consent.

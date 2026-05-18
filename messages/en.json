@@ -115,7 +115,7 @@
     "procedure_in_app": "In the Shake It app: open the « User settings » page and tap « Supprimer le compte » (Delete account).",
     "procedure_email": "Or contact us by email at support_shake_it@sparkixe.com with the email address of your account and proof of account ownership (e.g. screenshot of your profile or account page). We will process your request within the timeframes set out below.",
     "data_deleted_title": "Data deleted",
-    "data_deleted": "When your account is deleted, the following data is removed: account data (email, display name, profile picture), personal recipes, « My Bar » content, favourites, cart, and preferences (language, theme, measurement system, home page). Technical data (logs) is deleted or anonymised within a reasonable timeframe.",
+    "data_deleted": "When your account is deleted, the following data is removed: account data (email, display name, profile picture), personal recipes (including recipe images), « My Bar » content, favourites, cart, and preferences (language, theme, measurement system, home page). Technical data (logs) is deleted or anonymised within a reasonable timeframe.",
     "data_retained_title": "Data retained",
     "data_retained": "We do not keep any personal data after deletion, except where required by law (e.g. billing, disputes) for a limited period.",
     "retention_title": "Processing time",
