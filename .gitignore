@@ -27,6 +27,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# Generated at build from ADMOB_PUBLISHER_ID
+/public/app-ads.txt
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
