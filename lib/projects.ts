@@ -8,7 +8,7 @@ export interface Project {
   /** Optional: number of feature_1, feature_2, ... keys in messages for this project. */
   featuresCount?: number;
   /** Optional external links (e.g. live site, demo). Label keys are in messages under project_page.visit_site etc. */
-  links?: { labelKey: string; url: string }[];
+  links?: { labelKey: string; url?: string; comingSoon?: boolean }[];
   /** Screenshot paths under public/ (e.g. "/projects/ecommerce-configurator/1.jpg"). Put files in public/projects/<slug>/ */
   images?: string[];
   /** If set, links to the app-specific privacy policy at /privacy/[this slug] (must exist in lib/privacy-docs). */
@@ -30,7 +30,7 @@ export const projects: Project[] = [
   {
     slug: "cocktail-app",
     translationKey: "cocktail",
-    status: "in_progress",
+    status: "completed",
     tech: ["Flutter","C#", "NoSQL"],
     featuresCount: 6,
     images: ["/projects/cocktail-app/1.jpg",
@@ -44,8 +44,9 @@ export const projects: Project[] = [
     links: [
       {
         labelKey: "play_store",
-        url: "https://play.google.com/store/apps/details?id=com.sparkixe.shakeit",
+        url: "https://play.google.com/store/apps/details?id=com.villapero.shakeit",
       },
+      { labelKey: "app_store", comingSoon: true },
     ],
   },
   {

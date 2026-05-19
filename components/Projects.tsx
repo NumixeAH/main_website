@@ -67,17 +67,26 @@ export default function Projects() {
               >
                 {t("view_project")} →
               </Link>
-              {project.links?.map((link) => (
-                <a
-                  key={link.url}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.cardLinkExternal}
-                >
-                  {t(link.labelKey)} ↗
-                </a>
-              ))}
+              {project.links?.map((link) =>
+                link.comingSoon ? (
+                  <span
+                    key={link.labelKey}
+                    className={styles.cardLinkComingSoon}
+                  >
+                    {t(link.labelKey)}
+                  </span>
+                ) : (
+                  <a
+                    key={link.url}
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.cardLinkExternal}
+                  >
+                    {t(link.labelKey)} ↗
+                  </a>
+                )
+              )}
             </div>
           </GlowCard>
         ))}

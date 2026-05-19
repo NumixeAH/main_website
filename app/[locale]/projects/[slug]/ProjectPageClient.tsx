@@ -166,17 +166,26 @@ export default function ProjectPageClient({ project, slug, locale }: Props) {
             <div className={styles.section}>
               <h2 className={styles.sectionTitle}>{pp("links")}</h2>
               <div className={styles.externalLinks}>
-                {project.links.map((link) => (
-                  <a
-                    key={link.url}
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={styles.externalLink}
-                  >
-                    {pp(link.labelKey)} ↗
-                  </a>
-                ))}
+                {project.links.map((link) =>
+                  link.comingSoon ? (
+                    <span
+                      key={link.labelKey}
+                      className={styles.linkComingSoon}
+                    >
+                      {pp(link.labelKey)}
+                    </span>
+                  ) : (
+                    <a
+                      key={link.url}
+                      href={link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.externalLink}
+                    >
+                      {pp(link.labelKey)} ↗
+                    </a>
+                  )
+                )}
               </div>
             </div>
           )}

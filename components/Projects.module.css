@@ -96,6 +96,13 @@
   opacity: 0.9;
 }
 
+.cardLinkComingSoon {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  opacity: 0.75;
+}
+
 @media (max-width: 480px) {
   .grid {
     grid-template-columns: 1fr;

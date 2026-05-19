@@ -170,6 +170,18 @@
   background: var(--accent-glow);
 }
 
+.linkComingSoon {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 20px;
+  border: 1px dashed var(--border);
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  opacity: 0.85;
+}
+
 .screenshots {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
